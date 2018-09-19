@@ -1,0 +1,30 @@
+/mlg create
+
+Select Gamemode (inventory)
+Choose map name (anvil)
+-> Already exists (reopen anvil + error in chat)
+-> next
+Choose world name (anvil)
+
+/mlg edit <map name>
+
+/mlg gui <map name>
+Edit <map name> (inventory)
+Teams, Region
+-> Region (edit region gui with region)
+-> Teams (team selection)
+
+Team select
+Blue Team, Red Team
+-> (edit team)
+
+Team edit
+-> (edit region gui with region)
+-> (set spawn loc)
+
+Region edit
+-> pos1
+-> pos2
+(-> show borders)
+
+/mlg last gui
