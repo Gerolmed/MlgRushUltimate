@@ -5,6 +5,8 @@ public class Team {
     private TeamColor teamColor;
     private MlgPlayer mlgPlayer;
 
+    private int score;
+
     public Team(TeamColor teamColor) {
         this.teamColor = teamColor;
     }
@@ -21,6 +23,14 @@ public class Team {
     }
     public TeamColor getTeamColor() {
         return teamColor;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void addScore(int score) {
+        this.score += score;
     }
 
     public enum TeamColor {

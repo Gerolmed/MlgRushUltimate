@@ -1,12 +1,12 @@
 package de.gerolmed.mru.map;
 
 import de.gerolmed.mru.game.GameType;
+import de.gerolmed.mru.player.Team;
 import de.gerolmed.mru.utils.SoulsLocation;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.configuration.serialization.SerializableAs;
 
 import java.util.LinkedHashMap;
-import java.util.UUID;
 
 @SerializableAs("Map")
 public class Map implements Cloneable, ConfigurationSerializable {
@@ -101,5 +101,12 @@ public class Map implements Cloneable, ConfigurationSerializable {
                 (MapTeam) args.get("teamRed"),
                 (MapTeam) args.get("teamBlue"));
 
+    }
+
+    public MapTeam getTeam(Team.TeamColor teamColor) {
+
+        if(teamColor == Team.TeamColor.RED)
+            return redTeam;
+        return blueTeam;
     }
 }

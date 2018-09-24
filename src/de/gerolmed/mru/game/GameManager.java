@@ -3,6 +3,7 @@ package de.gerolmed.mru.game;
 import de.gerolmed.mru.Main;
 import de.gerolmed.mru.map.Map;
 import de.gerolmed.mru.player.Team;
+import de.gerolmed.mru.utils.ChatUtils;
 
 public class GameManager {
     private static GameManager instance;
@@ -53,6 +54,34 @@ public class GameManager {
     public void start() {
         setGameState(GameState.RUNNING);
         getGameType().start(this);
+    }
+
+    public void score(Team team) {
+        if(team == null)
+            return;
+        team.addScore(1);
+        if(team.getScore() == getMaxScore())
+            win(team);
+    }
+
+    public void win(Team team) {
+        ChatUtils.broadcast("Victory to: " + team.getTeamColor().toString());
+    }
+
+    private int getMaxScore() {
+        return 10; // TODO: read from config
+    }
+
+    public Team getOpposingTeam(Team team) {
+        if(team == null)
+            return null;
+
+        if(team == teamRed)
+            return teamBlue;
+        else if(team == teamBlue)
+            return teamRed;
+
+        return null;
     }
 
     public enum GameState {

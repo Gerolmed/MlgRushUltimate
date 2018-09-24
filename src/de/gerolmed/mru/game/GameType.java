@@ -1,5 +1,8 @@
 package de.gerolmed.mru.game;
 
+import de.gerolmed.mru.player.MlgPlayer;
+import de.gerolmed.mru.player.MlgPlayerManager;
+import de.gerolmed.mru.player.Team;
 import de.gerolmed.mru.utils.BlockTracer;
 import de.gerolmed.mru.utils.ItemUtils;
 import org.bukkit.Location;
@@ -26,6 +29,14 @@ public enum GameType {
         return BlockTracer.getInstance().hasChanges(location);
     }
     public void dieVoid(GameManager gameManager, Player player) {
+        MlgPlayer mlgPlayer = MlgPlayerManager.getPlayer(player.getUniqueId());
+        Team team = gameManager.getOpposingTeam(mlgPlayer.getTeam());
+
+        if(team == null)
+            return;
+
+        player.teleport(gameManager.getCurrentMap().getTeam(mlgPlayer.getTeam().getTeamColor()).getTeamSpawn().toLocation());
+        gameManager.score(team);
 
     }
     public void diePlayer(GameManager gameManager, Player killer, Player killed) {

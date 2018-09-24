@@ -69,4 +69,7 @@ public class MlgPlayer {
         this.team = team;
     }
 
+    public Team getTeam() {
+        return team;
+    }
 }

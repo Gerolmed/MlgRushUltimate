@@ -28,3 +28,14 @@ Region edit
 (-> show borders)
 
 /mlg last gui
+
+
+//Mode - Oneline
+
+Red team vs Blue team
+First to {config values}
+
+Place block {config values}
+Break block {config values}
+Player damage false
+Die void -> Enemy score
