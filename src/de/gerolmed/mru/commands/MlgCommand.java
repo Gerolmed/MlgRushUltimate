@@ -20,6 +20,7 @@ public class MlgCommand extends BasicCommand {
         addSubCommand(new CreateCommand(main));
         addSubCommand(new EditCommand(main));
         addSubCommand(new LastCommand(main));
+        addSubCommand(new ListWorldsCommand(main));
     }
 
     private void addSubCommand(SubCommand subCommand) {
